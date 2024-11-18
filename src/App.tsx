@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-
 import { AnimatePresence } from 'framer-motion';
 import { useThemeStore } from './store/theme';
 import Navbar from '@components/layouts/Navbar';

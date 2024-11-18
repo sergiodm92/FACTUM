@@ -1,5 +1,3 @@
-import { desc } from "framer-motion/client";
-
 export default {
   translation: {
     nav: {
@@ -29,14 +27,14 @@ export default {
         data: 'Gestão de Dados',
         data_description: 'Sistemas avançados para coleta e análise de dados empresariais.',
         security: 'Segurança',
-        security_description: 'Proteção avançada de dados e cumprimento normativo.',      
+        security_description: 'Proteção avançada de dados e cumprimento normativo.',
         automation: 'Automatização',
         automation_description: 'Fluxos de trabalho automatizados para maior eficiência.',
         mobile: 'Soluções Móveis',
         mobile_description: 'Acesso aos seus dados de qualquer dispositivo.',
       },
     },
-    software:{
+    software: {
       title: 'Soluções de Software',
       subtitle: 'Tecnologia avançada para gestão empresarial',
       title2: 'Tecnologia Inovadora',
@@ -54,6 +52,14 @@ export default {
     about: {
       title: 'Sobre Nós',
       subtitle: 'Conheça nossa equipe e visão',
+      team: 'Nosso Equipe',
+      values: 'Nossos Valores',
+      danimir: {
+        description: 'Engenheiro Elétrico com 15 anos de experiência em desenvolvimento de projetos tecnológicos. Especializado em gerenciamento de equipes multidisciplinares e estratégia de inovação.'
+      },
+      luis: {
+        description: 'Engenheiro de Software com 12 anos de experiência em desenvolvimento de software de alto desempenho. Especialista em design de sistemas e arquiteturas escaláveis.'
+      }
     },
     contact: {
       title: 'Contato',
@@ -68,5 +74,9 @@ export default {
       en: 'English',
       pt: 'Português',
     },
+    footer: {
+      copyright: "Todos os direitos reservados.",
+      slogan: "Transforme sua empresa através de consultoria estratégica e soluções tecnológicas inovadoras."
+    }
   },
 };

@@ -3,7 +3,7 @@ import { Code, Database, Lock, Zap, Cloud, Smartphone, BarChart2, Settings } fro
 import PageTransition from '@/components/common/PageTransition';
 import ParticlesAtom from '@/components/common/animated-particles/ParticlesAtom';
 
-export function Software() {
+export default function Software() {
   const { t } = useTranslation();
   
   const features = [

@@ -1,3 +1,5 @@
+import { desc } from "framer-motion/client";
+
 export default {
   translation: {
     nav: {
@@ -50,7 +52,17 @@ export default {
     about: {
       title: 'Sobre Nosotros',
       subtitle: 'Conoce nuestro equipo y visión',
+      team: 'Nuestro Equipo',
+      values: 'Nuestros Valores',
+
+      danimir: {
+        description: 'Ingeniero Eléctrico con 15 años de experiencia en el desarrollo de proyectos tecnológicos. Especializado en gestión de equipos multidisciplinarios y estrategia de innovación.'
+      },
+      luis: {
+        description: 'Ingeniero en Software con 12 años de experiencia en desarrollo de software de alto rendimiento. Experto en diseño de sistemas y arquitecturas escalables.'
+      }
     },
+
     contact: {
       title: 'Contacto',
       subtitle: 'Estamos aquí para ayudarte',
@@ -64,5 +76,10 @@ export default {
       en: 'English',
       pt: 'Português',
     },
+    footer: {
+      copyright: "Todos los derechos reservados.",
+      slogan: "Transforma tu empresa a través de consultoría estratégica y soluciones tecnológicas innovadoras."
+
+    }
   },
 };

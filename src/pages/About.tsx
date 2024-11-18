@@ -3,22 +3,22 @@ import { Award, Target, Users, Globe } from 'lucide-react';
 import PageTransition from '@/components/common/PageTransition';
 import ParticlesGlow from '@/components/common/animated-particles/ParticlesGlow';
 
-export function About() {
+export default function About() {
   const { t } = useTranslation();
 
 
   const team = [
     {
-      name: 'Carlos Rodríguez',
-      role: 'CEO & Consultor Principal',
+      name: 'Danimir Lorkovic',
+      role: 'CEO & Co-Founder',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80',
-      description: 'Con más de 15 años de experiencia en consultoría estratégica y transformación empresarial.'
+      description: t('about.danimir.description')
     },
     {
-      name: 'Ana Martínez',
-      role: 'CTO & Directora de Tecnología',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80',
-      description: 'Experta en desarrollo de software y soluciones tecnológicas innovadoras.'
+      name: 'Luis Gimenez',
+      role: 'CEO & Co-Founder',
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80',
+      description: t('about.luis.description')
     }
   ];
 
@@ -61,7 +61,7 @@ export function About() {
 
           <div className="mb-20">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
-              Nuestro Equipo Directivo
+              {t('about.team')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {team.map((member, index) => (
@@ -88,7 +88,7 @@ export function About() {
 
           <div>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
-              Nuestros Valores
+              {t('about.values')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {values.map((value, index) => (

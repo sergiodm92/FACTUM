@@ -51,6 +51,14 @@ export default {
     about: {
       title: 'About Us',
       subtitle: 'Meet our team and vision',
+      team: 'Our Team',
+      values: 'Our Values',
+      danimir: {
+        description: 'Electrical engineer with 15 years of experience in developing technological projects. Specialized in managing multidisciplinary teams and innovation strategy.'
+      },
+      luis: {
+        description: 'Software engineer with 12 years of experience in high-performance software development. Expert in system design and scalable architectures.'
+      }
     },
     contact: {
       title: 'Contact',
@@ -65,5 +73,9 @@ export default {
       en: 'English',
       pt: 'Português',
     },
+    footer: {
+      copyright: "All rights reserved.",
+      slogan: "Transform your business through strategic consulting and innovative technology solutions."
+    }
   },
 };

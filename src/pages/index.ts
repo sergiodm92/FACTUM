@@ -1,5 +1,5 @@
-export * from './Home';
-export * from './About';
-export * from './Contact';
-export * from './Software';
-export * from './Consulting';
+export { default as Home } from "./Home";
+export { default as About } from "./About";
+export { default as Contact } from "./Contact";
+export { default as Software } from "./Software";
+export { default as Consulting } from "./Consulting";

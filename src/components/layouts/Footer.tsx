@@ -1,6 +1,8 @@
-import FactumIcon from '../common/FactumIcon'
+import { useTranslation } from 'react-i18next';
+import FactumIcon from '@components/common/FactumIcon'
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -10,7 +12,7 @@ export default function Footer() {
               <FactumIcon textColor={"white"} />
             </div>
             <p className="text-gray-400 mb-4">
-              Transformamos empresas a través de consultoría estratégica y soluciones tecnológicas innovadoras.
+              {t('footer.slogan')}
             </p>
           </div>
 
@@ -64,7 +66,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <p className="text-center text-gray-400">
-            © {new Date().getFullYear()} CR Enterprise. Todos los derechos reservados.
+            © {new Date().getFullYear()} FACTUM. {t('footer.copyright')}
           </p>
         </div>
       </div>

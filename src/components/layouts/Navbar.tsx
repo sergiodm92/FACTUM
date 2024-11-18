@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import ThemeToggle from './ThemeToggle';
-import LanguageSelector from './LanguageSelector';
-import FactumIcon from './FactumIcon'
+import ThemeToggle from '@components/common/ThemeToggle';
+import LanguageSelector from '@components/common/LanguageSelector';
+import FactumIcon from '@components/common/FactumIcon'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

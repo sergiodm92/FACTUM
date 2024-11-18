@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2023",
-    "lib": [
-      "ES2023", "dom"
-    ],
+    "lib": ["ES2023", "dom"],
     "module": "ESNext",
     "skipLibCheck": true,
     "moduleResolution": "bundler",
@@ -17,20 +15,12 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "./src",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
-      "@pages/*": [
-        "./pages/*"
-      ],
+      "@/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@pages/*": ["./pages/*"],
+      "@store/*": ["./store/*"]
     },
-    "jsx": "react-jsx" // Configuración necesaria para JSX/TSX
+    "jsx": "react-jsx"
   },
-  "include": [
-    "vite.config.ts",
-    "src/**/*"
-  ]
+  "include": ["vite.config.ts", "src/**/*"]
 }

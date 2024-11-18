@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import PageTransition from '@/components/common/PageTransition';
 import ParticlesAtomTwo from '@/components/common/animated-particles/ParticlesAtomTwo';
 
-export function Contact() {
+export default function Contact() {
   const { t } = useTranslation();
 
   return (

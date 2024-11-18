@@ -3,7 +3,7 @@ import { TrendingUp, Target, Users, BarChart2, Briefcase, PieChart, LineChart, A
 import PageTransition from '@/components/common/PageTransition';
 import ParticlesHexagon from '@/components/common/animated-particles/ParticlesHexagon';
 
-export function Consulting() {
+export default function Consulting() {
   const { t } = useTranslation();
   
   const services = [
