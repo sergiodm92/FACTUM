@@ -1,90 +1,31 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --glow-animation-duration: 6s; /* Duración de la animación (ajustable) */
-  --glow-color-light: rgba(192, 133, 23, 0.5); /* blue-500 con opacidad */
-  --glow-color-dark: rgba(235, 68, 2, 0.5); /* blue-400 con opacidad */
-  --card-bg-light: white;
-  --card-bg-dark: #4A5568; /* gray-800 */
+html {
+  scroll-behavior: smooth;
 }
 
-@keyframes rotate-glow {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+@layer base {
+  body {
+    @apply antialiased;
   }
 }
 
-.skill-card {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.skill-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(
-    transparent,
-    var(--glow-color),
-    transparent 30%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.skill-card:hover::before {
-  opacity: 1;
-  animation: rotate-glow var(--glow-animation-duration) linear infinite;
-}
-
-.skill-card::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  background: var(--card-bg);
-  border-radius: inherit;
-  z-index: 0;
-}
-
-.skill-card > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Modo claro */
-.skill-card {
-  --glow-color: var(--glow-color-light);
-  --card-bg: var(--card-bg-light);
-}
-
-/* Modo oscuro */
-.dark .skill-card {
-  --glow-color: var(--glow-color-dark);
-  --card-bg: var(--card-bg-dark);
-}
-
-@keyframes moveUpDown {
-  0% {
-    transform: translateY(0);
+@layer components {
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20;
   }
-  50% {
-    transform: translateY(-15px); /* Ajusta la distancia que deseas que se mueva hacia arriba */
+  
+  .section-title {
+    @apply text-3xl font-bold sm:text-4xl mb-4;
   }
-  100% {
-    transform: translateY(0);
+  
+  .section-subtitle {
+    @apply text-xl text-gray-600 dark:text-gray-400 mb-8;
   }
-}
-
-/* Clase que aplica la animación */
-.animate-up-down {
-  animation: moveUpDown 2s ease-in-out infinite; /* Ajusta la duración y el timing según sea necesario */
+  
+  input, textarea {
+    @apply border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-blue-500;
+  }
 }

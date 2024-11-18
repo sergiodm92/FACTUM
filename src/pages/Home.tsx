@@ -1,22 +1,14 @@
-import About from "../components/about/About"
-import Clients from "../components/clients"
-import Hero from "../components/hero/Hero"
-import WhyUs from '../components/services'
-import Contact from '../components/contact'
-import OursBeginning from '../components/ours-beginning'
-import Metodology from "../components/metodology"
+import PageTransition from '../components/PageTransition';
+import { ClientSlider, Hero, Services, Software, Contact } from '../components/Home';
 
-const HomePage = () => {
-    return (
-        <>
-            <Hero />
-            <About />
-            <WhyUs />
-            <Metodology/>
-            <OursBeginning />
-            <Clients />
-            <Contact />
-        </>
-    )
+export default function Home() {
+  return (
+    <PageTransition>
+      <Hero />
+      <Services />
+      <ClientSlider />
+      <Software />
+      <Contact />
+    </PageTransition>
+  );
 }
-export default HomePage
