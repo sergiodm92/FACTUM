@@ -1,6 +1,6 @@
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ParticlesGoUp from '../animated-particles/ParticlesGoUp';
+import ParticlesGoUp from '../common/animated-particles/ParticlesGoUp';
 import { useTranslation } from 'react-i18next';
 import { AnimatedCounter } from '../common';
 import { useState, useEffect } from 'react';

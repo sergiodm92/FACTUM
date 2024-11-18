@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 interface FactumIconProps {
-  textColor?: 'light' | 'dark';
+  textColor?: 'white' | 'black';
 }
 
 const FactumIcon = ({ textColor = 'black' }: FactumIconProps) => {

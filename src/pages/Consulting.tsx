@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { TrendingUp, Target, Users, BarChart2, Briefcase, PieChart, LineChart, ArrowUpRight } from 'lucide-react';
-import PageTransition from '../components/PageTransition';
-import ParticlesHexagon from '../components/animated-particles/ParticlesHexagon';
+import PageTransition from '@/components/common/PageTransition';
+import ParticlesHexagon from '@/components/common/animated-particles/ParticlesHexagon';
 
-export default function Consulting() {
+export function Consulting() {
   const { t } = useTranslation();
   
   const services = [

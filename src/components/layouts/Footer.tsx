@@ -1,6 +1,4 @@
-import React from 'react';
-import { BarChart2 } from 'lucide-react';
-import FactumIcon from './FactumIcon'
+import FactumIcon from '../common/FactumIcon'
 
 export default function Footer() {
   return (
@@ -9,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
-              <FactumIcon themeDefault={"dark"} />
+              <FactumIcon textColor={"white"} />
             </div>
             <p className="text-gray-400 mb-4">
               Transformamos empresas a través de consultoría estratégica y soluciones tecnológicas innovadoras.

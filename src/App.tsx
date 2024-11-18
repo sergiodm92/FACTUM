@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+
 import { AnimatePresence } from 'framer-motion';
 import { useThemeStore } from './store/theme';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Software from './pages/Software';
-import Consulting from './pages/Consulting';
-import About from './pages/About';
-import Contact from './pages/Contact';
+import Navbar from '@components/layouts/Navbar';
+import Footer from '@components/layouts/Footer';
+import { Home, About, Contact, Software, Consulting } from '@pages/index';
 import './i18n/config';
 
 function AnimatedRoutes() {
@@ -30,7 +26,6 @@ function AnimatedRoutes() {
 
 function App() {
   const { theme } = useThemeStore();
-  const { t } = useTranslation();
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');

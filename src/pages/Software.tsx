@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Code, Database, Lock, Zap, Cloud, Smartphone, BarChart2, Settings } from 'lucide-react';
-import PageTransition from '../components/PageTransition';
-import ParticlesAtom from '../components/animated-particles/ParticlesAtom';
+import PageTransition from '@/components/common/PageTransition';
+import ParticlesAtom from '@/components/common/animated-particles/ParticlesAtom';
 
-export default function Software() {
+export function Software() {
   const { t } = useTranslation();
   
   const features = [

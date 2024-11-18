@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Award, Target, Users, Globe } from 'lucide-react';
-import PageTransition from '../components/PageTransition';
-import ParticlesGlow from '../components/animated-particles/ParticlesGlow';
+import PageTransition from '@/components/common/PageTransition';
+import ParticlesGlow from '@/components/common/animated-particles/ParticlesGlow';
 
-export default function About() {
+export function About() {
   const { t } = useTranslation();
 
 

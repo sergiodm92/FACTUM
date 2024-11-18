@@ -1,7 +1,7 @@
-import PageTransition from '../components/PageTransition';
+import PageTransition from '@/components/common/PageTransition';
 import { ClientSlider, Hero, Services, Software, Contact } from '../components/Home';
 
-export default function Home() {
+export function Home() {
   return (
     <PageTransition>
       <Hero />

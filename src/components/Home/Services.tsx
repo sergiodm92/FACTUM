@@ -1,4 +1,3 @@
-import React from 'react';
 import { LineChart, Settings, TrendingUp, Users } from 'lucide-react';
 
 export function Services() {
