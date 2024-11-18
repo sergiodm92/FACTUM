@@ -43,6 +43,7 @@ export default {
       high_performance: 'Alta performance',
       customizable: 'Personalizable',
       multiplataform: 'Multiplataforma',
+      paperless: 'Paperless',
       data_analysis: 'Analisis de datos'
     },
     consulting: {
@@ -54,7 +55,8 @@ export default {
       subtitle: 'Conoce nuestro equipo y visión',
       team: 'Nuestro Equipo',
       values: 'Nuestros Valores',
-
+      company: 'La Empresa',
+      company_description: 'Somos una empresa Argentina de consultoría en estrategia y operaciones que busca maximizar el valor agregado percibido por sus clientes y guiar a las organizaciones en el cumplimiento de sus objetivos estratégicos, asegurando la rentabilidad. Se enfocan en la integración de personas, procesos y tecnología para mejorar la competitividad en áreas como productividad, calidad, flexibilidad e innovación. Con más de 10 años de experiencia, han trabajado con empresas destacadas de diversos sectores económicos, demostrando su capacidad para adaptarse a diferentes industrias.',
       danimir: {
         description: 'Ingeniero Eléctrico con 15 años de experiencia en el desarrollo de proyectos tecnológicos. Especializado en gestión de equipos multidisciplinarios y estrategia de innovación.'
       },

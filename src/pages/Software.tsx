@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Code, Database, Lock, Zap, Cloud, Smartphone, BarChart2, Settings } from 'lucide-react';
+import { Code, Database, Lock, Zap, Cloud, BarChart2, Settings, Folder } from 'lucide-react';
 import PageTransition from '@/components/common/PageTransition';
 import ParticlesAtom from '@/components/common/animated-particles/ParticlesAtom';
 
@@ -61,8 +61,8 @@ export default function Software() {
                   <span>{t('software.customizable')}</span>
                 </div>
                 <div className="flex items-center space-x-2 text-orange-600 dark:text-orange-500">
-                  <Smartphone className="h-5 w-5" />
-                  <span>{t('software.multiplatform')}</span>
+                  <Folder className="h-5 w-5" />
+                  <span>{t('software.paperless')}</span>
                 </div>
                 <div className="flex items-center space-x-2 text-orange-600 dark:text-orange-500">
                   <BarChart2 className="h-5 w-5" />

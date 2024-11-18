@@ -85,6 +85,15 @@ export default function About() {
               ))}
             </div>
           </div>
+          <div className="flex flex-col items-center justify-center mb-20">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
+              {t('about.company')}
+            </h2>
+            <p className="text-gray-600 text-xl dark:text-gray-300 mb-8 w-full max-w-3xl">
+              {t('about.company_description')}
+            </p>
+         
+          </div>
 
           <div>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">

@@ -42,6 +42,7 @@ export default {
       high_performance: 'High performance',
       customizable: 'Customizable',
       multiplatform: 'Multiplatform',
+      paperless: 'Paperless',
       data_analysis: 'Data analysis'
     },
     consulting: {
@@ -53,6 +54,8 @@ export default {
       subtitle: 'Meet our team and vision',
       team: 'Our Team',
       values: 'Our Values',
+      company: 'The Company',
+      company_description: 'Factum is an Argentine company of consulting in strategy and operations that seeks to maximize the accumulated value perceived by its clients and guides organizations in compliance with their strategic objectives, ensuring liquidity. It focuses on integrating people, processes, and technology to improve competitiveness in areas such as productivity, quality, flexibility, and innovation. With over 10 years of experience, they have worked with notable companies from various economic sectors, demonstrating their ability to adapt to different industries.',
       danimir: {
         description: 'Electrical engineer with 15 years of experience in developing technological projects. Specialized in managing multidisciplinary teams and innovation strategy.'
       },
