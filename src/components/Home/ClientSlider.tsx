@@ -81,24 +81,6 @@ export function ClientSlider() {
           </div>
         </div>
 
-        {/* Mobile version - Static grid */}
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:hidden gap-4">
-          {clients.slice(0, 6).map((client, index) => (
-            <div
-              key={`mobile-${client.name}-${index}`}
-              className="flex-shrink-0 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md p-4 flex items-center justify-center group"
-            >
-              <div className="relative w-full h-20">
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 dark:group-hover:bg-white/5 transition-colors duration-300 rounded-lg" />
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

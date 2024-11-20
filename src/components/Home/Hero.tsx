@@ -26,14 +26,14 @@ export function Hero() {
   return (
     <div
       id="home"
-      className="relative pt-16 bg-gradient-to-br from-orange-50 to-white dark:from-gray-900 dark:to-gray-800"
+      className="relative lg:pt-16 bg-gradient-to-br from-orange-50 to-white dark:from-gray-900 dark:to-gray-800"
     >
       <ParticlesGoUp />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative py-10 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-20">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
           <div className="mb-12 lg:mb-0">
             <motion.h1
-              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-1"
+              className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-1"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -45,7 +45,7 @@ export function Hero() {
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={titleNumber} // Clave única para que Framer Motion detecte cambios
-                  className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6"
+                  className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6"
                   initial={{ opacity: 0, x: 0 }} // Animación de entrada
                   animate={{ opacity: 1, y: 0 }} // Animación cuando está activo
                   exit={{ opacity: 0, x: 0 }} // Animación de salida

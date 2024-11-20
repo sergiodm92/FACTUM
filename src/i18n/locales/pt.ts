@@ -10,7 +10,7 @@ export default {
     home: {
       hero: {
         title: 'Transforme seu negócio com estratégia e',
-        title_dynamic: ["Dynamic Title 1", "Dynamic Title 2", "Dynamic Title 3"],
+        title_dynamic: ["Tecnologia", "Inovação", "Experiência"],
         subtitle: 'Otimizamos processos e maximizamos o desempenho da sua empresa',
         button: 'Começar Agora',
         button2: 'Saiba Mais',
