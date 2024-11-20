@@ -1,12 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
 interface ParticlesAtomProps {
-  particleCount?: number; // Número de partículas (opcional, por defecto 50)
-  particleSizeRange?: [number, number]; // Rango de tamaño de partículas
-  particleColor?: string; // Color base de las partículas
+  numberOfParticles?: number;
 }
 
-const ParticlesAtom: React.FC<ParticlesAtomProps> = () => {
+const ParticlesAtom: React.FC<ParticlesAtomProps> = ({numberOfParticles = 250}) => {
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -34,7 +32,7 @@ const ParticlesAtom: React.FC<ParticlesAtomProps> = () => {
       return {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 1,
+        size: Math.random() * 2 + 1.5,
         speedX: (Math.random() - 0.5) * 0.5,
         speedY: (Math.random() - 0.5) * 0.5,
         opacity: Math.random() * 0.5 + 0.2,
@@ -43,7 +41,7 @@ const ParticlesAtom: React.FC<ParticlesAtomProps> = () => {
     };
 
     // Create initial particles
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < numberOfParticles; i++) {
       particles.push(createParticle());
     }
 
@@ -64,7 +62,7 @@ const ParticlesAtom: React.FC<ParticlesAtomProps> = () => {
             if (distance < 100) {
               ctx.beginPath();
               ctx.strokeStyle = `rgba(255, 120, 0, ${0.1 * (1 - distance / 100)})`;
-              ctx.lineWidth = 0.5;
+              ctx.lineWidth = 1;
               ctx.moveTo(particle.x, particle.y);
               ctx.lineTo(otherParticle.x, otherParticle.y);
               ctx.stroke();

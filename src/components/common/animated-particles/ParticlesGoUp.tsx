@@ -51,9 +51,9 @@ const ParticlesGoUp: React.FC<ParticlesGoUpProps> = ({ numberOfParticles = 100 }
       constructor() {
         this.x = Math.random() * canvas.width / window.devicePixelRatio;
         this.y = canvas.height / window.devicePixelRatio;
-        this.size = Math.random() * 3 + 1;
+        this.size = Math.random() * 4 + 1;
         this.speedX = Math.random() * 2 - 1.5;
-        this.speedY = -(Math.random() * 0.5 + 0.5);
+        this.speedY = -(Math.random() * 1.75 + 0.5);
         this.color = getRandomOrange();
       }
 

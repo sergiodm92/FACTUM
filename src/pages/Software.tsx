@@ -32,7 +32,7 @@ export default function Software() {
   return (
     <PageTransition>
       <div className="min-h-screen bg-white dark:bg-gray-900">
-        <ParticlesAtom />
+        <ParticlesAtom numberOfParticles={250} />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">

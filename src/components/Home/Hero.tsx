@@ -28,7 +28,7 @@ export function Hero() {
       id="home"
       className="relative lg:pt-16 bg-gradient-to-br from-orange-50 to-white dark:from-gray-900 dark:to-gray-800"
     >
-      <ParticlesGoUp />
+      <ParticlesGoUp numberOfParticles={500} />
       <div className="relative py-10 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-20">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
           <div className="mb-12 lg:mb-0">
