@@ -1,26 +1,33 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
-    "lib": ["ES2023", "dom"],
-    "module": "ESNext",
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "baseUrl": "./src",
-    "paths": {
-      "@/*": ["./*"],
-      "@components/*": ["./components/*"],
-      "@pages/*": ["./pages/*"],
-      "@store/*": ["./store/*"]
-    },
-    "jsx": "react-jsx"
+      "paths": {
+        "@/*": ["./*"],
+        "@components/*": ["./components/*"],
+        "@pages/*": ["./pages/*"],
+        "@store/*": ["./store/*"],
+        "@public/*": ["../public/*"],
+        "@services/*": ["./services/*"]
+      },
   },
-  "include": ["vite.config.ts", "src/**/*"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

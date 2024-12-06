@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link  from 'next/link';
 
 interface FactumIconProps {
   textColor?: 'white' | 'black';
@@ -8,7 +8,7 @@ const FactumIcon = ({ textColor = 'black' }: FactumIconProps) => {
 
   return (
     <div className="flex items-center">
-      <Link to="/" className="flex items-center">
+      <Link href="/" className="flex items-center">
         <div className="flex items-center">
           <span className={`text-2xl font-bold text-${textColor} dark:text-white`}>
             FAC

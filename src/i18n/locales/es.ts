@@ -34,6 +34,22 @@ export default {
         automation_description: 'Flujos de trabajo automatizados para mayor eficiencia.',
         mobile: 'Soluciones Móviles',
       },
+      services:{
+        title: 'Servicios',
+        subtitle: 'Ofrecemos una amplia gama de servicios para ayudarte a alcanzar tus objetivos empresariales.',
+        consulting: 'Consultoría',
+        consulting_description: 'Ofrecemos consejos y orientación expertas para ayudarte a tomar decisiones informadas y alcanzar tus objetivos empresariales.',
+        software: 'Software',
+        software_description: 'Desarrollamos soluciones de software innovadoras que impulsan la transformación digital de tu empresa, mejorando la eficiencia operativa y proporcionando ventajas competitivas significativas.',
+        data: 'Datos',
+        data_description: 'Ofrecemos servicios de gestión de datos avanzados para ayudarte a recolectar, analizar y entender tus datos empresariales.',
+        process_optimization: 'Optimización de Procesos',
+        process_optimization_description: 'Ofrecemos servicios de optimización de procesos para ayudarte a mejorar la eficiencia y la productividad de tus operaciones.',
+      },
+      clients: {
+        title: 'Nuestros Clientes',
+        subtitle: 'Empresas que han beneficiado de nuestros servicios',
+      }
     },
     software: {
       title: 'Soluciones de Software',
@@ -49,12 +65,24 @@ export default {
     consulting: {
       title: 'Consultoría Estratégica',
       subtitle: 'Optimización de procesos y rendimiento empresarial',
+      experience: 'Experiencia y Resultados',
+      experience_description: 'Nuestro equipo de consultores expertos trabaja estrechamente con tu empresa para identificar oportunidades de mejora y desarrollar soluciones estratégicas que impulsen tu crecimiento.',
     },
     about: {
       title: 'Sobre Nosotros',
       subtitle: 'Conoce nuestro equipo y visión',
       team: 'Nuestro Equipo',
-      values: 'Nuestros Valores',
+      values_title: 'Nuestros Valores',
+      values: {
+        excellence: 'Excelencia',
+        excellence_description: 'Compromiso con la calidad y mejora continua en todos nuestros servicios.',
+        innovation: 'Innovación',
+        innovation_description: 'Búsqueda constante de soluciones creativas y tecnologías avanzadas.',
+        collaboration: 'Colaboración',
+        collaboration_description: 'Trabajo en equipo cercano con nuestros clientes para alcanzar objetivos comunes.',
+        global_impact: 'Impacto Global',
+        global_impact_description: 'Soluciones que trascienden fronteras y generan valor internacional.',
+      },
       company: 'La Empresa',
       company_description: 'Somos una empresa Argentina de consultoría en estrategia y operaciones que busca maximizar el valor agregado percibido por sus clientes y guiar a las organizaciones en el cumplimiento de sus objetivos estratégicos, asegurando la rentabilidad. Se enfocan en la integración de personas, procesos y tecnología para mejorar la competitividad en áreas como productividad, calidad, flexibilidad e innovación. Con más de 10 años de experiencia, han trabajado con empresas destacadas de diversos sectores económicos, demostrando su capacidad para adaptarse a diferentes industrias.',
       danimir: {
@@ -66,8 +94,20 @@ export default {
     },
 
     contact: {
-      title: 'Contacto',
+      title: 'Contáctanos',
       subtitle: 'Estamos aquí para ayudarte',
+      description: 'Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos. Nos encantaría ayudarte a mejorar tus procesos y mejorar la eficiencia de tu empresa.',
+      name_required: 'Se requiere nombre',
+      email_required: 'Se requiere correo electrónico',
+      message_required: 'Se requiere mensaje',
+      error_send_message: 'Hubo un problema al enviar el mensaje. Por favor, intenta más tarde.',
+      success_message: 'Mensaje enviado exitosamente. ¡Nos pondremos en contacto contigo pronto!',
+      name: 'Nombre',
+      email: 'Correo electrónico',
+      message: 'Mensaje',
+      sending: 'Enviando...',
+      send_message: 'Enviar mensaje',
+      error_rate_limit: 'Se ha alcanzado el límite de envíos. Por favor, inténtalo más tarde.',
     },
     theme: {
       light: 'Modo Claro',
@@ -80,8 +120,26 @@ export default {
     },
     footer: {
       copyright: "Todos los derechos reservados.",
-      slogan: "Transforma tu empresa a través de consultoría estratégica y soluciones tecnológicas innovadoras."
-
+      slogan: "Transforma tu empresa a través de consultoría estratégica y soluciones tecnológicas innovadoras.",
+      fast_links: 'Enlaces Rápidos',
+      legal: 'Legal',
+      privacy_policy: 'Política de Privacidad',
+      terms_of_service: 'Términos de Servicio',
+      legal_notice: 'Aviso Legal',
+      consulting: 'Consultoría',
+      contact: 'Contacto',
+      home: 'Inicio',
+      services: 'Servicios',
+      software: 'Software',
+      social_networks: 'Redes Sociales',
+      LinkedIn: 'LinkedIn',
+      Twitter: 'Twitter',
+      Instagram: 'Instagram',
+    },
+    not_found:{
+      title: '404',
+      subtitle: 'La página que estás buscando no existe.',
+      button: 'Volver al Inicio', 
     }
   },
 };

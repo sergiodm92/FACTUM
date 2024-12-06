@@ -1,3 +1,4 @@
+"use client"
 import { Database, Shield, Zap, Smartphone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 

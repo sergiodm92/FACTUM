@@ -1,19 +1,28 @@
-import React, { useEffect, useRef } from 'react';
+"use client";
+import React, { useEffect, useRef, useState } from 'react';
 
 interface ParticleGlowProps {
   particleCount?: number; // Número de partículas (opcional, por defecto 50)
   particleSizeRange?: [number, number]; // Rango de tamaño de partículas
   particleColor?: string; // Color base de las partículas
 }
-
 const ParticlesGlow: React.FC<ParticleGlowProps> = ({
   particleCount = 50,
   particleSizeRange = [2, 5],
   particleColor = 'rgba(255, 120, 50',
 }) => {
+  const [screenWidth, setScreenWidth] = useState<number | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setScreenWidth(window.innerWidth);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (screenWidth === null) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -48,7 +57,7 @@ const ParticlesGlow: React.FC<ParticleGlowProps> = ({
       };
     };
 
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < screenWidth / 50; i++) {
       particles.push(createParticle());
     }
 
@@ -119,9 +128,9 @@ const ParticlesGlow: React.FC<ParticleGlowProps> = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [particleCount, particleSizeRange, particleColor]);
+  }, [screenWidth, particleSizeRange, particleColor]);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
+  return <canvas ref={canvasRef} className="absolute w-full inset-0 z-0" />;
 };
 
 export default ParticlesGlow;

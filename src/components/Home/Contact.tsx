@@ -1,57 +1,25 @@
+"use client";
+import { FormContact } from "../common/FormContact";
+import { useTranslation } from "react-i18next";
+
 export function Contact() {
+
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
-            Contáctanos
+            {t("contact.title")}
           </h2>
-          <p className="mt-4 text-xl text-gray-600 dark:text-gray-300">
-            Estamos aquí para ayudarte a alcanzar tus objetivos
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 md:pl-32 md:pr-32"> 
+            {t("contact.description")}
           </p>
         </div>
 
         <div className="flex items-center justify-center gap-12">
-          <form className="space-y-6 w-full max-w-xl">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Nombre completo
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-orange-500 focus:ring-orange-500 dark:bg-gray-800 dark:text-white"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Correo electrónico
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-orange-500 focus:ring-orange-500 dark:bg-gray-800 dark:text-white"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Mensaje
-              </label>
-              <textarea
-                id="message"
-                rows={4}
-                className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-orange-500 focus:ring-orange-500 dark:bg-gray-800 dark:text-white"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-orange-600 text-white px-6 py-3 rounded-md hover:bg-orange-700 transition-colors"
-            >
-              Enviar mensaje
-            </button>
-          </form>
+          <FormContact />
         </div>
       </div>
     </section>

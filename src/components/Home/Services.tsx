@@ -1,27 +1,31 @@
-import { LineChart, Settings, TrendingUp, Users } from 'lucide-react';
+"use client";
+import { LineChart, Settings, TrendingUp, Code } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export function Services() {
+  const { t } = useTranslation();
   const services = [
     {
-      icon: <LineChart className="h-8 w-8 text-orange-600 dark:text-orange-500" />,
-      title: 'Análisis Estratégico',
-      description: 'Evaluamos tu empresa para identificar oportunidades de mejora y optimización.'
+      icon: <Settings className="h-8 w-8 text-orange-600 dark:text-orange-500" />,
+      title: t("home.services.consulting"),
+      description: t("home.services.consulting_description")
     },
     {
-      icon: <Settings className="h-8 w-8 text-orange-600 dark:text-orange-500" />,
-      title: 'Optimización de Procesos',
-      description: 'Implementamos metodologías ágiles para mejorar la eficiencia operativa.'
+      icon: <Code className="h-8 w-8 text-orange-600 dark:text-orange-500" />,
+      title: t("home.services.software"),
+      description: t("home.services.software_description")
+    },
+    {
+      icon: <LineChart className="h-8 w-8 text-orange-600 dark:text-orange-500" />,
+      title: t("home.services.data"),
+      description: t("home.services.data_description")
     },
     {
       icon: <TrendingUp className="h-8 w-8 text-orange-600 dark:text-orange-500" />,
-      title: 'Gestión del Rendimiento',
-      description: 'Desarrollamos KPIs y sistemas de medición para maximizar resultados.'
+      title: t("home.services.process_optimization"),
+      description: t("home.services.process_optimization_description")
     },
-    {
-      icon: <Users className="h-8 w-8 text-orange-600 dark:text-orange-500" />,
-      title: 'Capacitación',
-      description: 'Formamos a tu equipo en las mejores prácticas y herramientas.'
-    }
+
   ];
 
   return (
@@ -29,10 +33,10 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
-            Nuestros Servicios
+            {t("home.services.title")}
           </h2>
           <p className="mt-4 text-xl text-gray-600 dark:text-gray-300">
-            Soluciones integrales para impulsar tu negocio
+            {t("home.services.subtitle")}
           </p>
         </div>
 

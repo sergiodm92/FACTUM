@@ -1,42 +1,44 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import ThemeToggle from '@components/common/ThemeToggle';
-import LanguageSelector from '@components/common/LanguageSelector';
-import FactumIcon from '@components/common/FactumIcon'
+"use client";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation"; // Reemplaza useLocation
+import { useTranslation } from "react-i18next";
+import ThemeToggle from "@components/common/ThemeToggle";
+import LanguageSelector from "@components/common/LanguageSelector";
+import FactumIcon from "@components/common/FactumIcon";
+import Link from "next/link"; // Usa el componente Link de Next.js
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
-  const location = useLocation();
+  const pathname = usePathname(); // Obtiene la ruta actual
 
   const navigation = [
-    { name: t('nav.home'), href: '/' },
-    { name: t('nav.software'), href: '/software' },
-    { name: t('nav.consulting'), href: '/consulting' },
-    { name: t('nav.about'), href: '/about' },
-    { name: t('nav.contact'), href: '/contact' },
+    { name: t("nav.home"), href: "/" },
+    { name: t("nav.software"), href: "/software" },
+    { name: t("nav.consulting"), href: "/consulting" },
+    { name: t("nav.about"), href: "/about" },
+    { name: t("nav.contact"), href: "/contact" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <nav className="bg-white dark:bg-gray-900 shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <FactumIcon/>
-          
+          <FactumIcon />
+
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-4">
             {navigation.map((item) => (
               <Link
                 key={item.href}
-                to={item.href}
+                href={item.href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive(item.href)
-                    ? 'bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-300'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-orange-900/30'
+                    ? "bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-300"
+                    : "text-gray-600 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-orange-900/30"
                 }`}
               >
                 {item.name}
@@ -69,11 +71,11 @@ export default function Navbar() {
             {navigation.map((item) => (
               <Link
                 key={item.href}
-                to={item.href}
+                href={item.href}
                 className={`block px-3 py-2 rounded-md text-base font-medium ${
                   isActive(item.href)
-                    ? 'bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-300'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-orange-900/30'
+                    ? "bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-300"
+                    : "text-gray-600 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-orange-900/30"
                 }`}
                 onClick={() => setIsOpen(false)}
               >

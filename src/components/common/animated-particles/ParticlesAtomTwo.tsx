@@ -1,21 +1,40 @@
-import React, { useEffect, useRef } from 'react';
+"use client";
+import React, { useEffect, useRef, useState } from 'react';
 
 interface ParticlesAtomTwoProps {
-  particleCount?: number; // Número de partículas (opcional, por defecto 80)
+  particleCount?: number;
 }
 
-const ParticlesAtomTwo: React.FC<ParticlesAtomTwoProps> = ({ particleCount = 80 }) => {
+const ParticlesAtomTwo: React.FC<ParticlesAtomTwoProps> = ({ particleCount }) => {
+  const [screenSize, setScreenSize] = useState<{ width: number; height: number } | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleResize = () => {
+        setScreenSize({ width: window.innerWidth, height: window.innerHeight });
+      };
+
+      handleResize(); // Inicializa con el tamaño actual
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!screenSize) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = screenSize.width;
+    canvas.height = screenSize.height;
 
     const particles: Array<{
       x: number;
@@ -34,7 +53,7 @@ const ParticlesAtomTwo: React.FC<ParticlesAtomTwoProps> = ({ particleCount = 80 
       speedX: number;
       speedY: number;
       opacity: number;
-      shape: "circle" | "square";
+      shape: 'circle' | 'square';
     } => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -42,11 +61,11 @@ const ParticlesAtomTwo: React.FC<ParticlesAtomTwoProps> = ({ particleCount = 80 
       speedX: (Math.random() - 0.5) * 0.3,
       speedY: (Math.random() - 0.5) * 0.3,
       opacity: Math.random() * 0.3 + 0.1,
-      shape: Math.random() > 0.5 ? "circle" : "square", // Garantiza un literal válido
+      shape: Math.random() > 0.5 ? 'circle' : 'square',
     });
 
-    // Initialize particles
-    for (let i = 0; i < 80; i++) {
+    const count = particleCount || screenSize.width / 10;
+    for (let i = 0; i < count; i++) {
       particles.push(createParticle());
     }
 
@@ -108,19 +127,12 @@ const ParticlesAtomTwo: React.FC<ParticlesAtomTwoProps> = ({ particleCount = 80 
 
     animate();
 
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
     return () => {
-      window.removeEventListener('resize', handleResize);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     };
-  }, [particleCount]);
+  }, [particleCount, screenSize]);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
+  return <canvas ref={canvasRef} className="absolute w-full inset-0 z-0" />;
 };
 
 export default ParticlesAtomTwo;

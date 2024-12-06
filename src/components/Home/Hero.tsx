@@ -1,9 +1,11 @@
+"use client";
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ParticlesGoUp from '../common/animated-particles/ParticlesGoUp';
 import { useTranslation } from 'react-i18next';
 import { AnimatedCounter } from '../common';
 import { useState, useEffect } from 'react';
+import { stats } from '@/config/site';
+import ParticlesAtom from '../common/animated-particles/ParticlesAtom';
 
 export function Hero() {
   const { t } = useTranslation();
@@ -12,23 +14,16 @@ export function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTitleNumber((prev) => (prev + 1) % 3); // Cambia el número de título (3 es el total de títulos dinámicos)
-    }, 4000); // Cambiar cada 2 segundos
+    }, 4000); // Cambiar cada 4 segundos
     return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
   }, []);
 
-  const stats = [
-    { value: 500, label: t('home.hero.stats.projects') },
-    { value: 98, label: t('home.hero.stats.satisfaction') },
-    { value: 15, label: t('home.hero.stats.years') },
-    { value: 200, label: t('home.hero.stats.clients') },
-  ];
-
-  return (
+   return (
     <div
       id="home"
-      className="relative lg:pt-16 bg-gradient-to-br from-orange-50 to-white dark:from-gray-900 dark:to-gray-800"
+      className="relative pt-16 bg-gradient-to-br from-orange-50 to-white dark:from-gray-900 dark:to-gray-800"
     >
-      <ParticlesGoUp numberOfParticles={500} />
+      <ParticlesAtom />
       <div className="relative py-10 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-20">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
           <div className="mb-12 lg:mb-0">
@@ -40,15 +35,15 @@ export function Hero() {
             >
               {t('home.hero.title')}
             </motion.h1>
-            {/* Texto dinámico con efecto */}
+            {/* Texto dinámico con efecto flip */}
             <div className="overflow-hidden h-16">
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={titleNumber} // Clave única para que Framer Motion detecte cambios
                   className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6"
-                  initial={{ opacity: 0, x: 0 }} // Animación de entrada
-                  animate={{ opacity: 1, y: 0 }} // Animación cuando está activo
-                  exit={{ opacity: 0, x: 0 }} // Animación de salida
+                  initial={{ opacity: 0, rotateX: 90 }} // Entrada con giro
+                  animate={{ opacity: 1, rotateX: 0 }} // Animación de entrada sin giro
+                  exit={{ opacity: 0, rotateX: -90 }} // Animación de salida con giro
                   transition={{ duration: 0.5 }}
                 >
                   {t(`home.hero.title_dynamic.${titleNumber}`)}
@@ -113,7 +108,7 @@ export function Hero() {
                 <TrendingUp className="h-6 w-6 text-orange-600 dark:text-orange-500" />
               </div>
               <AnimatedCounter value={stat.value} />
-              <p className="text-gray-600 dark:text-gray-300">{stat.label}</p>
+              <p className="text-gray-600 dark:text-gray-300">{t(stat.label)}</p>
             </motion.div>
           ))}
         </div>

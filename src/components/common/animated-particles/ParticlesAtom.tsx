@@ -1,49 +1,59 @@
-import React, { useEffect, useRef } from 'react';
+"use client";
+import React, { useEffect, useRef, useMemo, useState } from "react";
 
 interface ParticlesAtomProps {
   numberOfParticles?: number;
 }
 
-const ParticlesAtom: React.FC<ParticlesAtomProps> = ({numberOfParticles = 250}) => {
-  
+const ParticlesAtom: React.FC<ParticlesAtomProps> = ({ numberOfParticles }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [screenSize, setScreenSize] = useState<{ width: number; height: number } | null>(null);
+
+  // Actualizar tamaño de pantalla solo en el cliente
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setScreenSize({ width: window.innerWidth, height: window.innerHeight });
+      };
+
+      handleResize(); // Inicializar tamaño al montar
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
+
+  // Crear partículas iniciales solo una vez, usando useMemo
+  const particles = useMemo(() => {
+    if (!screenSize) return [];
+
+    const createParticle = () => ({
+      x: Math.random() * screenSize.width,
+      y: Math.random() * screenSize.height,
+      size: Math.random() * 2 + 1.5,
+      speedX: (Math.random() - 0.5) * 0.5,
+      speedY: (Math.random() - 0.5) * 0.5,
+      opacity: Math.random() * 0.5 + 0.2,
+      color: `rgba(255, ${Math.floor(Math.random() * 50 + 100)}, 0, ${Math.random() * 0.5 + 0.1})`,
+    });
+
+    const particleCount = numberOfParticles || (screenSize.width / 10);
+    return Array.from({ length: particleCount }, createParticle);
+  }, [numberOfParticles, screenSize]);
 
   useEffect(() => {
+    if (!screenSize) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles: Array<{
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      opacity: number;
-      color: string;
-    }> = [];
-
-    const createParticle = () => {
-      return {
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 1.5,
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.5,
-        opacity: Math.random() * 0.5 + 0.2,
-        color: `rgba(255, ${Math.floor(Math.random() * 50 + 100)}, 0, ${Math.random() * 0.5 + 0.1})`
-      };
-    };
-
-    // Create initial particles
-    for (let i = 0; i < numberOfParticles; i++) {
-      particles.push(createParticle());
-    }
+    canvas.width = screenSize.width;
+    canvas.height = screenSize.height;
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -52,7 +62,7 @@ const ParticlesAtom: React.FC<ParticlesAtomProps> = ({numberOfParticles = 250}) 
         particle.x += particle.speedX;
         particle.y += particle.speedY;
 
-        // Draw connecting lines
+        // Dibujar líneas de conexión
         particles.forEach((otherParticle, otherIndex) => {
           if (index !== otherIndex) {
             const dx = particle.x - otherParticle.x;
@@ -70,13 +80,13 @@ const ParticlesAtom: React.FC<ParticlesAtomProps> = ({numberOfParticles = 250}) 
           }
         });
 
-        // Draw particle
+        // Dibujar partícula
         ctx.beginPath();
         ctx.fillStyle = particle.color;
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Reset position if particle goes off screen
+        // Reestablecer posición si la partícula sale de la pantalla
         if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
         if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
       });
@@ -86,19 +96,13 @@ const ParticlesAtom: React.FC<ParticlesAtomProps> = ({numberOfParticles = 250}) 
 
     animate();
 
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
     return () => {
-      window.removeEventListener('resize', handleResize);
+      // Limpieza de recursos
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     };
-  }, []);
+  }, [particles, screenSize]);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
+  return <canvas ref={canvasRef} className="absolute w-full inset-0 z-0" />;
 };
 
 export default ParticlesAtom;

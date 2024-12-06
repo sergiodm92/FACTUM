@@ -1,13 +1,33 @@
-import React, { useEffect, useRef } from 'react';
+"use client";
+import React, { useEffect, useRef, useState } from 'react';
 
 interface ParticlesHexagonProps {
-  particleCount?: number; // Número de partículas (opcional, por defecto 30)
+  particleCount?: number;
 }
 
-const ParticlesHexagon: React.FC<ParticlesHexagonProps> = ({ particleCount = 30 }) => {
+const ParticlesHexagon: React.FC<ParticlesHexagonProps> = ({ particleCount }) => {
+  const [screenWidth, setScreenWidth] = useState<number | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setScreenWidth(window.innerWidth);
+
+      const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
+    if (screenWidth === null) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -54,7 +74,8 @@ const ParticlesHexagon: React.FC<ParticlesHexagonProps> = ({ particleCount = 30 
       ctx.stroke();
     };
 
-    for (let i = 0; i < particleCount; i++) {
+    const count = particleCount || Math.floor(screenWidth / 50);
+    for (let i = 0; i < count; i++) {
       particles.push(createParticle());
     }
 
@@ -97,14 +118,12 @@ const ParticlesHexagon: React.FC<ParticlesHexagonProps> = ({ particleCount = 30 
 
     animate();
 
-    window.addEventListener('resize', resizeCanvas);
-
     return () => {
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, [particleCount]);
+  }, [screenWidth, particleCount]);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
+  return <canvas ref={canvasRef} className="absolute w-full inset-0 z-0" />;
 };
 
 export default ParticlesHexagon;
