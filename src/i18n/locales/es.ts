@@ -33,6 +33,7 @@ export default {
         automation: 'Automatización',
         automation_description: 'Flujos de trabajo automatizados para mayor eficiencia.',
         mobile: 'Soluciones Móviles',
+        mobile_description: 'Plataformas móviles para mejorar la experiencia del usuario.',
       },
       services:{
         title: 'Servicios',
