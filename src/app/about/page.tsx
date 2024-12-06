@@ -72,7 +72,7 @@ const About: FC = () => {
 
           <div>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
-              {t('about.values_tilte')}
+              {t('about.values_title')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {values.map((value, index) => (

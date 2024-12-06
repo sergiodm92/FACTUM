@@ -12,7 +12,7 @@ export default {
     home: {
       hero: {
         title: 'Transformamos tu negocio con estrategia y',
-        title_dynamic: ["Tecnología", "Ignovación", "Experiencia"],
+        title_dynamic: ["Tecnología", "Innovación", "Experiencia"],
         subtitle: 'Optimizamos procesos y maximizamos el rendimiento de tu empresa',
         button: 'Comenzar ahora',
         button2: 'Conoce más',
